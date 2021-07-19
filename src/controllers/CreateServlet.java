@@ -26,12 +26,12 @@ public class CreateServlet extends HttpServlet {
         if(_token != null && _token.equals(request.getSession().getId())) {
             EntityManager em = DBUtil.createEntityManager();
             em.getTransaction().begin();
-
+            //インスタンス作成
             Task m = new Task();
-
+            // フォームの内容を各フィールドに上書き
             String content = request.getParameter("content");
             m.setContent(content);
-
+            // データベースに新規作成
             Timestamp currentTime = new Timestamp(System.currentTimeMillis());
             m.setCreated_at(currentTime);
             m.setUpdated_at(currentTime);
@@ -39,7 +39,7 @@ public class CreateServlet extends HttpServlet {
             em.persist(m);
             em.getTransaction().commit();
             em.close();
-
+            // indexページへリダイレクト
             response.sendRedirect(request.getContextPath() + "/index");
         }
     }

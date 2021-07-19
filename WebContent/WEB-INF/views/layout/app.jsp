@@ -14,7 +14,7 @@
                 ${param.content}
             </div>
             <div id="footer">
-
+                今日も頑張りましょう。
             </div>
         </div>
     </body>

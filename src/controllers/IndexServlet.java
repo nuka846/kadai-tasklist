@@ -24,13 +24,12 @@ public class IndexServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         EntityManager em = DBUtil.createEntityManager();
-
+        //データベースを全件取得
         List<Task> tasks = em.createNamedQuery("getAllTask", Task.class).getResultList();
-
         em.close();
 
         request.setAttribute("tasks",tasks );
-
+        //index.jspで取得したタスクの表示と各画面への遷移
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/tasks/index.jsp");
         rd.forward(request, response);
         }

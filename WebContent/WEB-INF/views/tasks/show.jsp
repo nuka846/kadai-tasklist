@@ -4,7 +4,7 @@
 <c:import url="../layout/app.jsp">
     <c:param name="content">
 
-        <h2>id : ${tasks.id} のタスク詳細ページ</h2>
+        <h2>id : ${tasks.id} のタスク詳細</h2>
 
         <p>タスク内容：<c:out value="${tasks.content}" /></p>
         <p>作成日時：<fmt:formatDate value="${tasks.created_at}" pattern="yyyy-MM-dd HH:mm:ss" /></p>
